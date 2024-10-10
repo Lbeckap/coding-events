@@ -2,14 +2,16 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
-
+<head th:replace="fragments :: head"></head>
 <body>
+<h1>All Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${events} and ${events.size()}">No events!</p>
+<!--Truthy statement check for events and if so, if there is anything in events-->
 <ul>
-    <th:block th:each="event : ${eventNames}">
+    <th:block th:each="event : ${events}">
         <li th:text="${event}"></li>
     </th:block>
 </ul>
