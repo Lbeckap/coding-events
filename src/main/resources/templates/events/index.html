@@ -13,14 +13,18 @@
 <table class="table table-striped text-center">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Location</th>
         </tr>
     </thead>
     <tr th:each="event : ${events}">
-        <td th:text="${event.getKey()}"></td>
-        <td th:text="${event.getValue()}"></td>
-        <td><img th:src="${imgUrl}" alt="image" height="30px" width="auto"></td>
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.description}"></td>
+        <td th:text="${event.address}"></td>
+        <td><img th:src="${event.img}" alt="image" height="30px" width="auto"></td>
     </tr>
 </table>
 </body>

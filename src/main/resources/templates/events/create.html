@@ -11,18 +11,28 @@
 
 <form method="post" action="/events/create">
     <div class="form-group">
-    <label>Name
-    <input type="text" name="eventName" class="form-control">
-    </label>
-        <label>Description
-            <input type="text" name="eventDescription" class="form-control">
-        </label>
-        <label>Image URL
-            <input type="url" name="imgUrl" class="form-control" placeholder="https://example.com" pattern="https://.*">
+        <label>Name
+            <input type="text" name="eventName" class="form-control">
         </label>
     </div>
     <div class="form-group">
-    <input type="submit" value="Create Event" class="btn btn-success">
+        <label>Description
+            <input type="text" name="eventDescription" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Address
+            <input type="text" name="eventAddress" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Image Url
+            <input type="url" name="eventImg" class="form-control">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create Event" class="btn btn-success">
     </div>
 </form>
 
