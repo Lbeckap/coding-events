@@ -1,5 +1,7 @@
 package org.launchcode.codingevents.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Objects;
 
 public class Event {
@@ -16,13 +18,16 @@ public class Event {
         this.name = name;
         this.description = description;
         this.address = address;
-        this.id = nextId;
-        nextId++;
     }
 
     public Event(String name, String description, String address, String img) {
         this(name, description, address);
         this.img = img;
+    }
+
+    public Event(){ // implicit default constructor needed when attempting model binding with more than one constructor
+        this.id = nextId;
+        nextId++;
     }
 
     public String getName() {

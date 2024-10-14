@@ -4,10 +4,7 @@ import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +27,8 @@ public class EventController {
    }
 
    @PostMapping("create") // it's okay to have the same path as renderCreateEventForm because they handle different types of requests. If they both handled the same type of request they would not be able to have the same path
-   public String createNewEvent(@RequestParam String eventName,
-                                @RequestParam String eventDescription,
-                                @RequestParam String eventAddress, @RequestParam String eventImg) {
-        EventData.add(new Event(eventName, eventDescription, eventAddress, eventImg));
+   public String createNewEvent(@ModelAttribute Event newEvent) { // Form input names must match the names of the fields in the class
+        EventData.add(newEvent);
 
         return "redirect:/events"; // Instructs the browser to go to a different page
    }
