@@ -1,13 +1,18 @@
 package org.launchcode.codingevents.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
 
     private String name;
     private String description;
@@ -25,10 +30,8 @@ public class Event {
         this.img = img;
     }
 
-    public Event(){ // implicit default constructor needed when attempting model binding with more than one constructor
-        this.id = nextId;
-        nextId++;
-    }
+    public Event(){ }// implicit default constructor needed when attempting model binding with more than one constructor
+
 
     public String getName() {
         return name;
